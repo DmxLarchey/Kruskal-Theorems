@@ -17,6 +17,9 @@ several instances of Kruskal's and Higman's tree theorems, via simple surjective
 
 # How to install `Kruskal-Theorems`
 
+__WARNING:__ `Kruskal-Theorems` is not part of `coq-opam` for the moment but the
+should happen on short notice. It just needs a bit of cleanup
+
 It can be installed via `opam` since release `v1.0` is now include into [`coq-opam`](https://github.com/coq/opam).
 ```console
 opam repo add coq-released https://coq.inria.fr/opam/released
