@@ -13,7 +13,7 @@ embeddings/atree_embed.v
 statements.v
 conversions.v
 
-conversions/higman_dtree_to_list.v
+# conversions/higman_dtree_to_list.v
 conversions/higman_dtree_afs_to_af.v
 conversions/higman_dtree_to_vazsonyi_bounded.v
 conversions/kruskal_vtree_to_ltree.v
@@ -21,7 +21,8 @@ conversions/kruskal_vtree_af_to_afs.v
 conversions/kruskal_vtree_afs_to_af.v
 conversions/kruskal_ltree_afs_to_af.v
 conversions/kruskal_ltree_af_to_afs.v
-conversions/kruskal_vtree_upto_afs_to_higman_dtree_afs.v
+conversions/veldman_vtree_upto_afs_to_kruskal_vtree_afs.v
+conversions/veldman_vtree_upto_afs_to_higman_dtree_afs.v
 conversions/kruskal_vtree_afs_to_higman_dtree_afs.v
 conversions/higman_kruskal_dtree_to_atree.v
 conversions/kruskal_ltree_to_vazsonyi.v

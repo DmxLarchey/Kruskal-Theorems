@@ -4,7 +4,7 @@
 (*                             [*] Affiliation LORIA -- CNRS  *)
 (**************************************************************)
 (*      This file is distributed under the terms of the       *)
-(*         CeCILL v2 FREE SOFTWARE LICENSE AGREEMENT          *)
+(*        Mozilla Public License Version 2.0, MPL-2.0         *)
 (**************************************************************)
 
 From Coq
@@ -51,33 +51,23 @@ Section vtree_ltree.
 
 End vtree_ltree.
 
-Section kruskal_vtree_to_ltree_at.
-
-  Variable (X : Type) (R : rel₂ X).
-
-  Hypothesis kruskal : @af_kruskal_vtree_at X R.
-
-  Theorem kruskal_vtree_to_ltree_at : af_kruskal_ltree_at R.
-  Proof.
-    intros HR; generalize (kruskal HR); clear HR.
-    af rel morph (fun x y => vtree_ltree x = y).
-    + intros t; destruct (vtree_ltree_surj t); eauto.
-    + intros t1 t2 ? ? <- <-.
-      induction 1 as [ t n x v p H1 IH1 | n x v m y w H1 H2 IH2 ].
-      * rewrite vtree_ltree_fix.
-        constructor 1 with (vtree_ltree v⦃p⦄); auto.
-        apply in_map_iff; exists v⦃p⦄; split; auto.
-        apply in_vec_list; eauto.
-      * rewrite !vtree_ltree_fix.
-        constructor 2; auto.
-        clear x y H1 H2; revert IH2.
-        induction 1; econstructor; eauto.
-  Qed.
-
-End kruskal_vtree_to_ltree_at.
-
 Theorem kruskal_vtree_to_ltree : af_kruskal_vtree → af_kruskal_ltree.
-Proof. intros H ? R; generalize (H _ R); apply kruskal_vtree_to_ltree_at. Qed.
+Proof.
+  intros K X R HR; generalize (K _ _ HR); clear HR.
+  af rel morph (fun x y => vtree_ltree x = y).
+  + intros t; destruct (vtree_ltree_surj t); eauto.
+  + intros t1 t2 ? ? <- <-.
+    induction 1 as [ t n x v p H1 IH1 | n x v m y w H1 H2 IH2 ].
+    * rewrite vtree_ltree_fix.
+      constructor 1 with (vtree_ltree v⦃p⦄); auto.
+      apply in_map_iff; exists v⦃p⦄; split; auto.
+      apply in_vec_list; eauto.
+    * rewrite !vtree_ltree_fix.
+      constructor 2; auto.
+      clear x y H1 H2; revert IH2.
+      induction 1; econstructor; eauto.
+Qed.
+
 
 
 

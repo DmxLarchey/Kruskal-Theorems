@@ -21,4 +21,3 @@ wc: force
 	@+$(MAKE) -f Makefile.coq $@
 
 .PHONY: all clean force
-

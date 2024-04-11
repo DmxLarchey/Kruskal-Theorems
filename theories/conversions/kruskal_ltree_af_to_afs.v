@@ -4,7 +4,7 @@
 (*                             [*] Affiliation LORIA -- CNRS  *)
 (**************************************************************)
 (*      This file is distributed under the terms of the       *)
-(*         CeCILL v2 FREE SOFTWARE LICENSE AGREEMENT          *)
+(*        Mozilla Public License Version 2.0, MPL-2.0         *)
 (**************************************************************)
 
 From Coq
@@ -42,9 +42,7 @@ Section kruskal_ltree_af_to_afs.
 
   Theorem kruskal_ltree_af_to_afs : afs_kruskal_ltree.
   Proof.
-    intros U X R.
-    red.
-    intros H%afs_iff_af_sub_rel%kruskal.
+    intros U X R H%afs_iff_af_sub_rel%kruskal.
     apply afs_iff_af_sub_rel; revert H.
     af rel morph (fun x y => proj1_sig y = forget x).
     + intros (t & Ht); simpl; revert t Ht.
@@ -64,4 +62,6 @@ Section kruskal_ltree_af_to_afs.
   Qed.
 
 End kruskal_ltree_af_to_afs.
+
+Check kruskal_ltree_af_to_afs.
 

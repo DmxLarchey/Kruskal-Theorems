@@ -126,11 +126,9 @@ End vtree_atree.
 
 Section higman_atree_af.
 
-  Variable (k : nat).
+  Hypothesis higman_dtree : af_higman_dtree.
 
-  Hypothesis higman_dtree : af_higman_dtree k.
-
-  Variables (X : Type) (a : X → nat) (R : nat → rel₂ X).
+  Variables (k : nat) (X : Type) (a : X → nat) (R : nat → rel₂ X).
 
   Notation A := (λ n x, n = a x).
 
@@ -142,7 +140,7 @@ Section higman_atree_af.
 
   Local Fact af_dtree_T : af (dtree_product_embed T).
   Proof.
-    apply higman_dtree.
+    apply higman_dtree with (k := k).
     + intros n Hn (x & Hx).
       specialize (Hk x).
       rewrite <- Hx in Hk; tlia.

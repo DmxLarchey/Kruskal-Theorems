@@ -111,8 +111,7 @@ End btree_dtree.
 
 Section Vazsonyi_bounded.
 
-  Variables (k : nat)
-            (higman_theorem : af_higman_dtree k).
+  Variable (higman_theorem : af_higman_dtree) (k : nat).
 
   (** We have a structural bijection !! *)
 
@@ -143,18 +142,17 @@ Section Vazsonyi_bounded.
     + af rel morph (fun x y => y = dtree_btree x).
       * intros y; exists (btree_dtree y); rewrite dtree_btree_dtree; auto.
       * intros t1 t2 ? ? -> ->; apply dtree_btree_morph.
-    + apply higman_theorem.
+    + apply higman_theorem with (k := k) .
       * intro n; unfold dtree_bounded; destruct (le_lt_dec k n); tlia; intros _ [].
       * constructor; tauto.
   Qed.
 
 End Vazsonyi_bounded.
 
-Theorem higman_dtree_to_vazsonyi_bounded k :
-        af_higman_dtree k
-      → vazsonyi_conjecture_bounded k.
+Theorem higman_dtree_to_vazsonyi_bounded :
+        af_higman_dtree → vazsonyi_conjecture_bounded.
 Proof.
-  intros Hk R HR1 HR2 f.
+  intros Hk k R HR1 HR2 f.
   apply vazsonyi_conjecture_bounded_strong; eauto.
 Qed.
 

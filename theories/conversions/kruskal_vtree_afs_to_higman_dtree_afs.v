@@ -4,7 +4,7 @@
 (*                             [*] Affiliation LORIA -- CNRS  *)
 (**************************************************************)
 (*      This file is distributed under the terms of the       *)
-(*         CeCILL v2 FREE SOFTWARE LICENSE AGREEMENT          *)
+(*        Mozilla Public License Version 2.0, MPL-2.0         *)
 (**************************************************************)
 
 From Coq
@@ -139,5 +139,5 @@ Section kruskal_afs_to_higman_afs.
 
 End kruskal_afs_to_higman_afs.
 
-Theorem kruskal_vtree_afs_to_higman_dtree_afs : afs_kruskal_vtree → ∀k, afs_higman_dtree k.
+Theorem kruskal_vtree_afs_to_higman_dtree_afs : afs_kruskal_vtree → afs_higman_dtree.
 Proof. intros ? ? ? ? ? ?; apply kruskal_afs_to_higman_afs_at; auto. Qed.

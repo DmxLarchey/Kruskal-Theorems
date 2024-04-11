@@ -21,8 +21,8 @@ Import vtree_notations dtree_notations.
 
 Set Implicit Arguments.
 
-Theorem kruskal_vtree_upto_afs_to_higman_dtree_afs :
-      afs_kruskal_vtree_upto → ∀k, afs_higman_dtree k.
+Theorem veldman_vtree_upto_afs_to_higman_dtree_afs :
+      afs_veldman_vtree_upto → afs_higman_dtree.
 Proof.
   intros Kr k U X R H1 H2.
   set (X' i := if le_lt_dec k i then ⊥₁ else X i).

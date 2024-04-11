@@ -22,6 +22,12 @@ Import ListNotations
 
 Set Implicit Arguments.
 
+(** This file is for educational purposes only since
+    af_list_embed is already proved as part of the
+    Kruskal-Higman project and also this lemma is
+    actually used in the proof of Kruskal-Veldman
+    hence of afs_veldman_vtree_upto *)
+
 Section list_to_dtree.
 
   (* From dtrees unit X void* to lists *)
@@ -67,7 +73,7 @@ End list_to_dtree.
 
 Section higman_dtree_to_list.
 
-  Hypothesis higman_dtree : af_higman_dtree 2.
+  Hypothesis higman_dtree : af_higman_dtree.
 
   Variable (X : Type) (R : rel₂ X).
 
@@ -90,12 +96,12 @@ Section higman_dtree_to_list.
       * intros r t ? ? <- <-.
         induction 1 as [ [|[]] x t v p H IH | [|[]] x v y w H IH ]; simpl; auto;
           ( (destruct x; fail) || idx invert all; auto with list_db).
-    + apply higman_dtree.
+    + apply higman_dtree with (k := 2).
       * intros [|[]] ?; tlia; intros [].
       * intros [|[]] ?; tlia; simpl; auto.
   Qed.
 
 End higman_dtree_to_list.
 
-Theorem higman_dtree_to_list : af_higman_dtree 2 → af_higman_list.
+Theorem higman_dtree_to_list : af_higman_dtree → af_higman_list.
 Proof. intros ? ? ? ?; apply higman_lemma_af; auto. Qed.

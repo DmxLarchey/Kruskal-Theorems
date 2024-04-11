@@ -94,7 +94,7 @@ End dtree_vtree.
 
 Section higman_afs_to_higman_af.
 
-  Variable (k : nat) (higman : afs_higman_dtree k).
+  Variables (higman : afs_higman_dtree) (k : nat).
 
   Variables (X  : nat → Type)
             (R  : ∀n, rel₂ (X n))
@@ -131,7 +131,7 @@ Section higman_afs_to_higman_af.
   Local Lemma higman_afs_to_higman_af_at : af (dtree_product_embed R).
   Proof.
     cut (afs (wft T) (dtree_product_embed R')).
-    2: { apply higman; eauto. }
+    2: { apply higman with k; eauto. }
     equiv with afs_iff_af_sub_rel.
     af rel morph (fun x y => vtree_dtree (proj1_sig x) (proj2_sig x) = y ).
     + intros t.
@@ -186,5 +186,5 @@ Section higman_afs_to_higman_af.
 
 End higman_afs_to_higman_af.
 
-Theorem higman_dtree_afs_to_af k : afs_higman_dtree k → af_higman_dtree k.
+Theorem higman_dtree_afs_to_af : afs_higman_dtree → af_higman_dtree.
 Proof. intros ? ? ? ?; apply higman_afs_to_higman_af_at; auto. Qed.

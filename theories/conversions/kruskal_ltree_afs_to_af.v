@@ -4,7 +4,7 @@
 (*                             [*] Affiliation LORIA -- CNRS  *)
 (**************************************************************)
 (*      This file is distributed under the terms of the       *)
-(*         CeCILL v2 FREE SOFTWARE LICENSE AGREEMENT          *)
+(*        Mozilla Public License Version 2.0, MPL-2.0         *)
 (**************************************************************)
 
 From Coq
@@ -19,9 +19,8 @@ Set Implicit Arguments.
 
 Theorem kruskal_ltree_afs_to_af : afs_kruskal_ltree → af_kruskal_ltree.
 Proof.
-  intros K X R; red in K |- *.
-  intros ?%af_iff_afs_True%K; 
-  apply af_iff_afs_True; revert H.
+  intros K X R ?%af_iff_afs_True%K;
+    apply af_iff_afs_True; revert H.
   apply afs_mono; auto.
   intros t _.
   induction t; apply ltree_fall_fix; auto.
