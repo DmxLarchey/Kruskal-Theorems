@@ -64,9 +64,9 @@ From this theorem formulated abstractly, we derive a proof of
 [Vazsonyi's conjecture](https://en.wikipedia.org/wiki/Andrew_V%C3%A1zsonyi):
 ```coq
 Theorem vazsonyi_conjecture X (R : rel₂ (ltree X)) :
-      (∀ r s x l, R r s → s ∈ l → R r (ltree_cons x l))
-    → (∀ x l y m, list_embed R l m → R (ltree_cons x l) (ltree_cons y m))
-    → ∀f, ∃ i j, i < j < n ∧ R (f i) (f j).
+      (∀ s t x l, t ∈ l → R s t → R r ⟨x|l⟩ₗ)
+    → (∀ x l y m, list_embed R l m → R ⟨x|l⟩ₗ ⟨y|m⟩ₗ)
+    → ∀f : nat → ltree X, ∃ i j, i < j < n ∧ R (f i) (f j).
 ```
 where `R` is abstracted as any relation closed for the rules
 of homeomorphic embeddings.
