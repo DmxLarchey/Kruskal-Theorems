@@ -14,7 +14,7 @@ From KruskalTrees
   Require Import idx vec vtree ltree.
 
 Require Import base vtree_embed ltree_embed
-               conversions.
+               statements conversions.
 
 Import vec_notations vtree_notations af_notations.
 

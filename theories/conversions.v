@@ -7,10 +7,9 @@
 (*        Mozilla Public License Version 2.0, MPL-2.0         *)
 (**************************************************************)
 
-Require Import base.
+Require Import base statements.
 
-Require Export statements
-               veldman_vtree_upto_afs_to_kruskal_vtree_afs
+Require Export veldman_vtree_upto_afs_to_kruskal_vtree_afs
                veldman_vtree_upto_afs_to_higman_dtree_afs
                kruskal_vtree_afs_to_af
                kruskal_vtree_to_ltree

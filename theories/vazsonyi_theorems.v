@@ -14,14 +14,17 @@ From KruskalTrees
   Require Import list_utils idx vec vtree ltree.
 
 Require Import base vtree_embed ltree_embed
+               statements
                conversions
                kruskal_theorems
                higman_theorems.
 
 Import vec_notations vtree_notations af_notations.
 
+(** See statements.v for the statement of the "conjecture" *)
 Theorem vazsonyi_theorem_bounded : vazsonyi_conjecture_bounded.
 Proof. apply higman_dtree_to_vazsonyi_bounded, higman_theorem_dtree_af. Qed.
 
+(** See statements.v for the statement of the "conjecture" *)
 Theorem vazsonyi_theorem : vazsonyi_conjecture.
 Proof. apply kruskal_ltree_to_vazsonyi, kruskal_theorem_ltree_af. Qed.

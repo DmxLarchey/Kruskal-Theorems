@@ -13,7 +13,8 @@ From Coq
 From KruskalTrees
   Require Import tactics idx vec vtree.
 
-Require Import base vtree_embed conversions.
+Require Import base vtree_embed
+               statements conversions.
 
 Import idx_notations vec_notations vtree_notations.
 
