@@ -8,10 +8,10 @@
 (**************************************************************)
 
 From Coq
-  Require Import Arith Utf8.
+  Require Import Utf8.
 
 From KruskalTrees
-  Require Import list_utils idx vec vtree ltree.
+  Require Import idx vec vtree ltree.
 
 Require Import base vtree_embed ltree_embed
                conversions.
@@ -31,6 +31,9 @@ Proof. apply kruskal_vtree_to_ltree, kruskal_theorem_vtree_af. Qed.
 
 Theorem kruskal_theorem_ltree_afs : afs_kruskal_ltree.
 Proof. apply kruskal_ltree_af_to_afs, kruskal_theorem_ltree_af. Qed.
+
+Theorem kruskal_theorem_atree_af : af_kruskal_atree.
+Proof. apply kruskal_theorem_vtree_atree_af, kruskal_theorem_vtree_af. Qed.
 
 Section kruskal_as_closure_properties.
 

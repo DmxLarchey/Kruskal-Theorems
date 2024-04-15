@@ -20,26 +20,32 @@ Import idx_notations vec_notations vtree_notations.
 Set Implicit Arguments.
 
 (* We use conversion and Veldman's theorem afs_vtree_upto_embed *)
-Theorem higman_theorem_afs : afs_higman_dtree.
+Theorem higman_theorem_dtree_afs : afs_higman_dtree.
 Proof. apply veldman_vtree_upto_afs_to_higman_dtree_afs, veldman_theorem_vtree_upto. Qed.
 
-Theorem higman_theorem_af : af_higman_dtree.
-Proof. apply higman_dtree_afs_to_af, higman_theorem_afs. Qed.
+Theorem higman_theorem_dtree_af : af_higman_dtree.
+Proof. apply higman_dtree_afs_to_af, higman_theorem_dtree_afs. Qed.
 
-Theorem higman_lemma_af : af_higman_list.
-Proof. apply higman_dtree_to_list, higman_theorem_af. Qed.
+Theorem higman_theorem_atree_af : af_higman_atree.
+Proof. apply higman_theorem_dtree_atree_af, higman_theorem_dtree_af. Qed.
 
-#[local] Definition arity {X} (r : dtree X) :=
-  match r with
-  | @dtree_cons _ n _ _ => n
-  end.
+Theorem higman_lemma_list_af : af_higman_list.
+Proof. apply higman_dtree_to_list, higman_theorem_dtree_af. Qed.
 
 Section counter_example.
 
   (** When the breadth of trees is not bounded, Higman product embedding 
       is not an almost full relation *)
 
-  Variable (X : Type) (R : nat → rel₂ X) (x : X).
+  Variable (X : Type) 
+           (R : nat → rel₂ X)   (* R can even be the full relation *)
+           (x : X)              (* X must be inhabited *)
+           .
+
+  Local Definition arity {X} (r : dtree X) :=
+    match r with
+    | @dtree_cons _ n _ _ => n
+    end.
 
   Infix "≤ₚ" := (dtree_product_embed R) (at level 70).
 

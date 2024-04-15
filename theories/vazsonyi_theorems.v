@@ -21,7 +21,7 @@ Require Import base vtree_embed ltree_embed
 Import vec_notations vtree_notations af_notations.
 
 Theorem vazsonyi_theorem_bounded : vazsonyi_conjecture_bounded.
-Proof. apply higman_dtree_to_vazsonyi_bounded, higman_theorem_af. Qed.
+Proof. apply higman_dtree_to_vazsonyi_bounded, higman_theorem_dtree_af. Qed.
 
 Theorem vazsonyi_theorem : vazsonyi_conjecture.
 Proof. apply kruskal_ltree_to_vazsonyi, kruskal_theorem_ltree_af. Qed.

@@ -147,7 +147,7 @@ Section higman_atree_af.
     + apply HR.
   Qed.
 
-  Theorem higman_dtree_atree_af : af (atree_product_embed a R).
+  Local Theorem higman_dtree_atree_af_local : af (atree_product_embed a R).
   Proof.
     generalize af_dtree_T.
     af rel morph (λ s t, dtree_atree a s = t).
@@ -169,7 +169,10 @@ Section higman_atree_af.
 
 End higman_atree_af.
 
-Section kruskal_atree_afs.
+Theorem higman_theorem_dtree_atree_af : af_higman_dtree → af_higman_atree.
+Proof. exact higman_dtree_atree_af_local. Qed.
+
+Section kruskal_atree_af.
 
   Hypothesis kruskal_vtree : af_kruskal_vtree.
 
@@ -182,7 +185,7 @@ Section kruskal_atree_afs.
   Local Fact af_vtree : af (vtree_homeo_embed R).
   Proof. apply kruskal_vtree, HR. Qed.
 
-  Theorem kruskal_vtree_atree_af : af (atree_homeo_embed a R).
+  Local Theorem kruskal_vtree_atree_af_local : af (atree_homeo_embed a R).
   Proof.
     generalize af_vtree.
     af rel morph (@va_tree_eq _ a).
@@ -213,9 +216,9 @@ Section kruskal_atree_afs.
           constructor 3; auto.
   Qed.
 
-End kruskal_atree_afs.
+End kruskal_atree_af.
 
-Check higman_dtree_atree_af.
-Check kruskal_vtree_atree_af.
+Theorem kruskal_theorem_vtree_atree_af : af_kruskal_vtree → af_kruskal_atree.
+Proof. exact kruskal_vtree_atree_af_local. Qed.
 
 

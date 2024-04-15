@@ -14,7 +14,7 @@ From KruskalTrees
   Require Import list_utils idx vec
                  dtree vtree ltree btree.
 
-Require Import base dtree_embed vtree_embed ltree_embed.
+Require Import base dtree_embed vtree_embed ltree_embed atree_embed.
 
 Import af_notations idx_notations vec_notations ltree_notations.
 
@@ -39,6 +39,19 @@ Definition af_higman_dtree :=
     → (∀n, n < k → af (R n))
     → af (dtree_product_embed R).
 
+(** The statement of Higman's theorem for vector based roses trees:
+      - each node (x : X) can only be used with arity (a x : nat)
+      - the relation R : nat → rel₂ X between nodes depends on the arity
+      - the arity is bounded by k : a _ < k
+      - for any arities n < k, R n restricted to (λ x, n = a x) is AF
+    In that case, the product embedding is AF. *)
+
+Definition af_higman_atree :=
+    ∀ (k : nat) X (a : X → nat) (R : nat → rel₂ X),
+      (∀x, a x < k)
+    → (∀n, n < k → af (R n)⇓(λ x, n = a x))
+    → af (atree_product_embed a R).
+
 (** The statement of Kruskal's theorem for vector based uniform roses trees:
       - the type of nodes is independent of the arity
       - the relation between nodes is independent of the arity
@@ -46,6 +59,14 @@ Definition af_higman_dtree :=
 
 Definition af_kruskal_vtree :=
     ∀ X (R : rel₂ X), af R → af (vtree_homeo_embed R).
+
+(** The statement of Kruskal's theorem for vector based roses trees:
+      - each node (x : X) can only be used with arity (a x : nat)
+      - the relation between nodes does not depend on the arity
+    In that case, the homeomorphic embedding is AF. *)
+
+Definition af_kruskal_atree :=
+    ∀ X (a : X → nat) (R : rel₂ X), af R → af (atree_homeo_embed a R).
 
 (** The statement of Kruskal's theorem for list based roses trees *)
 
