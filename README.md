@@ -15,9 +15,10 @@ The library is build on top of [`Kruskal-AlmostFull`](https://github.com/DmxLarc
 and derives, from the involved proof of the result in [`Kruskal-Veldman`](https://github.com/DmxLarchey/Kruskal-Veldman), 
 several instances of Kruskal's and Higman's tree theorems. 
 
-These proofs of those derived theorems are much simpler
-and proceed via simple surjective relational morphism, or, as a special case of morphism, simple inclusion 
-between relations.
+The proofs of those derived theorems are much simpler, ie. all the complexity is hidden in the 
+[`Kruskal-Veldman`](https://github.com/DmxLarchey/Kruskal-Veldman) main result.
+They proceed via simple surjective relational morphism, or, as a degenerate case of morphism, 
+simple inclusion between relations.
 
 # How to install `Kruskal-Theorems`
 
