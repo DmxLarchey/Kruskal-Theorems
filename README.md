@@ -13,21 +13,23 @@
 
 The library is build on top of [`Kruskal-AlmostFull`](https://github.com/DmxLarchey/Kruskal-AlmostFull)
 and derives, from the involved proof of the result in [`Kruskal-Veldman`](https://github.com/DmxLarchey/Kruskal-Veldman), 
-several instances of Kruskal's and Higman's tree theorems, via simple surjective relational morphism.
+several instances of Kruskal's and Higman's tree theorems. 
+
+These proofs of those derived theorems are much simpler
+and proceed via simple surjective relational morphism, or, as a special case of morphism, simple inclusion 
+between relations.
 
 # How to install `Kruskal-Theorems`
 
-__WARNING:__ `Kruskal-Theorems` is not part of `coq-opam` for the moment but the
-should happen on short notice. It just needs a bit of cleanup
-
-It can be installed via `opam` since release `v1.0` is now include into [`coq-opam`](https://github.com/coq/opam).
+It can be installed via `opam` since release `v1.0` which is now included 
+in [`coq-opam`](https://github.com/coq/opam).
 ```console
 opam repo add coq-released https://coq.inria.fr/opam/released
 opam update
 opam install coq-kruskal-theorems
 ```
 
-Notice that to import it in a development, as with `Kruskal-AlmostFull`, one should
+Notice that to import it in a development, as with [`Kruskal-AlmostFull`](https://github.com/DmxLarchey/Kruskal-AlmostFull), one should
 consistently choose between:
 - the `Prop`-bounded version accessed via eg `From KruskalThmProp Require ...`;
 - or the `Type`-bounded version via eg `From KruskalThmType Require ...`.
@@ -37,8 +39,8 @@ to the total overlap of the namespaces except for the prefixes `KruskalThm{Prop,
 
 # What are the main results
 
-There are several formulations of Kruskal's tree theorem available
-depending on the exact representation of indexed rose trees, either 
+There are several formulations of [_Kruskal's tree theorem_](https://en.wikipedia.org/wiki/Kruskal%27s_tree_theorem#:~:text=In%20mathematics%2C%20Kruskal's%20tree%20theorem,quasi%2Dordered%20under%20homeomorphic%20embedding.)
+available depending on the exact representation of indexed rose trees, either 
 as vectors of rose trees,... or list of rose trees which is the
 simplest to present:
 ```coq
@@ -59,11 +61,13 @@ where "s ≤ₕ t" := (ltree_homeo_embed R s t).
 
 Theorem af_ltree_homeo_embed X (R : rel₂ X) : af R → af (ltree_homeo_embed R).
 ```
+and herein proved in [`kruskal_theorems.v`](theories/kruskal_theorems.v) 
 
 From this theorem formulated abstractly, we derive a proof of
-[Vazsonyi's conjecture](https://en.wikipedia.org/wiki/Andrew_V%C3%A1zsonyi):
+[_Vazsonyi's conjecture_](https://en.wikipedia.org/wiki/Andrew_V%C3%A1zsonyi)
+(which turned out to be a theorem) and which is proved here in [`vazsonyi_theorems`](theories/vazsonyi_theorems.v):
 ```coq
-Theorem vazsonyi_conjecture X (R : rel₂ (ltree X)) :
+Theorem vazsonyi_theorem X (R : rel₂ (ltree X)) :
       (∀ s t x l, t ∈ l → R s t → R r ⟨x|l⟩ₗ)
     → (∀ x l y m, list_embed R l m → R ⟨x|l⟩ₗ ⟨y|m⟩ₗ)
     → ∀f : nat → ltree X, ∃ i j, i < j < n ∧ R (f i) (f j).
