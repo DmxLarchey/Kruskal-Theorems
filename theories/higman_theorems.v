@@ -4,7 +4,7 @@
 (*                             [*] Affiliation LORIA -- CNRS  *)
 (**************************************************************)
 (*      This file is distributed under the terms of the       *)
-(*         CeCILL v2 FREE SOFTWARE LICENSE AGREEMENT          *)
+(*        Mozilla Public License Version 2.0, MPL-2.0         *)
 (**************************************************************)
 
 From Coq
@@ -20,13 +20,10 @@ Import idx_notations vec_notations vtree_notations.
 Set Implicit Arguments.
 
 (* We use conversion and Veldman's theorem afs_vtree_upto_embed *)
-Theorem higman_theorem_afs k : afs_higman_dtree k.
-Proof.
-  apply kruskal_vtree_upto_afs_to_higman_dtree_afs.
-  intros ? ? ? ?; red; apply afs_vtree_upto_embed.
-Qed.
+Theorem higman_theorem_afs : afs_higman_dtree.
+Proof. apply veldman_vtree_upto_afs_to_higman_dtree_afs, veldman_theorem_vtree_upto. Qed.
 
-Theorem higman_theorem_af k : af_higman_dtree k.
+Theorem higman_theorem_af : af_higman_dtree.
 Proof. apply higman_dtree_afs_to_af, higman_theorem_afs. Qed.
 
 Theorem higman_lemma_af : af_higman_list.
@@ -39,8 +36,8 @@ Proof. apply higman_dtree_to_list, higman_theorem_af. Qed.
 
 Section counter_example.
 
-  (** When the breadth is not bounded, Higman product embedding 
-      is not almost full *)
+  (** When the breadth of trees is not bounded, Higman product embedding 
+      is not an almost full relation *)
 
   Variable (X : Type) (R : nat → rel₂ X) (x : X).
 
@@ -50,7 +47,6 @@ Section counter_example.
      t is a tree of height 1 with 1+n sons *) 
   Let l   : vtree X := ⟨x|∅⟩.
   Let t n : vtree X := ⟨x|vec_set (λ _ : idx (S n), l)⟩.
-
 
   Local Fact embed_l r : r ≤ₚ l → arity r = 0.
   Proof.

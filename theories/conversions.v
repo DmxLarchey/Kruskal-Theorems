@@ -34,13 +34,18 @@ Require Export statements.
    Hence establishing all the results. *)
 
 Require Export   veldman_vtree_upto_afs_to_kruskal_vtree_afs
+                 veldman_vtree_upto_afs_to_higman_dtree_afs
                  kruskal_vtree_afs_to_af
                  kruskal_vtree_to_ltree
                  kruskal_ltree_to_vazsonyi
                  kruskal_ltree_af_to_afs
                  kruskal_vtree_afs_to_higman_dtree_afs
+                 higman_dtree_to_list
                  higman_dtree_afs_to_af
                  higman_dtree_to_vazsonyi_bounded.
+
+Theorem veldman_theorem_vtree_upto : afs_veldman_vtree_upto.
+Proof. exact afs_vtree_upto_embed. Qed.
 
 (*
 Check higman_dtree_to_list.
