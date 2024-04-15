@@ -11,7 +11,7 @@ From Coq
   Require Import Arith Lia Utf8.
 
 From KruskalTrees
-  Require Import tactics (eq_refl_nat).
+  Require Import tactics.
 
 Set Implicit Arguments.
 

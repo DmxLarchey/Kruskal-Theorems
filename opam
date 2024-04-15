@@ -4,7 +4,8 @@ version: "1.0"
 synopsis: "Extending the Coq library for manipulating Almost Full relations with various forms of Kruskal's tree theorem"
 description: """
    This library formalizes the high-level variants of Higman's theorem (for trees of bounded arity)
-   and Kruskal's theorem (for rose trees), depending on how these datatypes are implemented.
+   and Kruskal's theorem (for rose trees), depending on how these datatypes are implemented. Also,
+   Vazsonyi's conjecture to illustrate the expressive power of Kruskal's and Higman's theorem.
 """  
 maintainer: ["Dominique Larchey-Wendling (https://github.com/DmxLarchey)"] 
 authors: "Dominique Larchey-Wendling (https://github.com/DmxLarchey)"
