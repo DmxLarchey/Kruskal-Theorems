@@ -19,7 +19,7 @@ Set Implicit Arguments.
 
 Theorem kruskal_ltree_afs_to_af : afs_kruskal_ltree → af_kruskal_ltree.
 Proof.
-  intros K X R ?%af_iff_afs_True%K;
+  intros K X R H%af_iff_afs_True%K;
     apply af_iff_afs_True; revert H.
   apply afs_mono; auto.
   intros t _.

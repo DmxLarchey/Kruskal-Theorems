@@ -7,4 +7,11 @@
 (*        Mozilla Public License Version 2.0, MPL-2.0         *)
 (**************************************************************)
 
-Require Export base_implem.
+From KruskalAfProp
+  Require Export base almost_full.
+
+From KruskalHigmanProp
+  Require Export list_embed vec_embed af_list_embed.
+
+From KruskalVeldmanProp
+  Require Export notations dtree_embed vtree_embed veldman_theorem.
