@@ -49,7 +49,7 @@ Inductive ltree (X : Type) : Type :=
   | in_ltree : X → list (ltree X) → ltree X
 where "⟨x|l⟩ₗ" := (@in_ltree _ x l).
 
-Inductive list_embed {X Y} (R : rel X Y) : list X → list Y → Prop :=
+Inductive list_embed {X Y} (R : X → Y → Prop) : list X → list Y → Prop :=
   | list_embed_nil :           [] ≤ₗ []
   | list_embed_head x l y m :  R x y → l ≤ₗ m → x::l ≤ₗ y::m
   | list_embed_skip l y m :    l ≤ₗ m → l ≤ₗ y::m
