@@ -8,17 +8,18 @@
 (*        Mozilla Public License Version 2.0, MPL-2.0         *)
 (**************************************************************)
 ```
-
 # What is this library?
 
-The library is build on top of [`Kruskal-AlmostFull`](https://github.com/DmxLarchey/Kruskal-AlmostFull)
-and derives, from the involved proof of the result in [`Kruskal-Veldman`](https://github.com/DmxLarchey/Kruskal-Veldman), 
-several instances of Kruskal's and Higman's tree theorems. 
+The library is build on top of [`Kruskal-Trees`](https://github.com/DmxLarchey/Kruskal-Trees), [`Kruskal-Finite`](https://github.com/DmxLarchey/Kruskal-Finite), [`Kruskal-AlmostFull`](https://github.com/DmxLarchey/Kruskal-AlmostFull), [`Kruskal-Higman`](https://github.com/DmxLarchey/Kruskal-Higman) and [`Kruskal-Veldman`](https://github.com/DmxLarchey/Kruskal-Veldman), and derives several instances of [Kruskal's tree theorem](https://en.wikipedia.org/wiki/Kruskal%27s_tree_theorem) for the homeomorphic embedding on rose trees, and of "Higman's theorem" for the product embedding on trees of bounded breadth (the terminology/name for _Higman's theorem_ is Wim Veldman's).
 
-The proofs of those derived theorems are much simpler, ie. all the complexity is hidden in the 
-[`Kruskal-Veldman`](https://github.com/DmxLarchey/Kruskal-Veldman) main result.
-They proceed via simple surjective relational morphism, or, as a degenerate case of morphism, 
-simple inclusion between relations.
+If your wish is to __understand the internals of the proof technique__ to establish Kruskal's tree theorem in inductive type theory,
+and its beauty btw, _the place you want to look at is rather [`Kruskal-Veldman`](https://github.com/DmxLarchey/Kruskal-Veldman)_ which contains most 
+of the details of the proof arguments, largely inspired by, but at the same time improving on the pen&paper proof of Wim Veldman.
+
+In here you will just find easy consequences of that result. The proofs of those derived theorems are much simpler, 
+ie. all the complexity is hidden in the [`Kruskal-Veldman`](https://github.com/DmxLarchey/Kruskal-Veldman) main result.
+Those easy proofs proceed via surjective relational morphisms, or, as a degenerate case of morphism, simple inclusion 
+between relations.
 
 # How to install `Kruskal-Theorems`
 
