@@ -63,7 +63,12 @@ where "s ≤ₕ t" := (ltree_homeo_embed R s t).
 
 Theorem af_ltree_homeo_embed X (R : rel₂ X) : af R → af (ltree_homeo_embed R).
 ```
-and herein proved in [`kruskal_theorems.v`](theories/kruskal_theorems.v) 
+and herein proved in [`kruskal_theorems.v`](theories/kruskal_theorems.v). The predicate `af`
+characterizes almost full relations inductivelly and is defined and described in 
+[`Kruskal-AlmostFull`](https://github.com/DmxLarchey/Kruskal-AlmostFull). So this
+is a more abstract formulation than that of Kruskal's tree theorem (because the
+`af` predicate abstracts the notion of [_Well Quasi Ordering_](https://en.wikipedia.org/wiki/Well-quasi-ordering) 
+in a constructive way.
 
 From this theorem formulated abstractly, we derive a proof of
 [_Vazsonyi's conjecture_](https://en.wikipedia.org/wiki/Andrew_V%C3%A1zsonyi)
@@ -74,5 +79,4 @@ Theorem vazsonyi_theorem X (R : rel₂ (ltree X)) :
     → (∀ x l y m, list_embed R l m → R ⟨x|l⟩ₗ ⟨y|m⟩ₗ)
     → ∀f : nat → ltree X, ∃ i j, i < j < n ∧ R (f i) (f j).
 ```
-where `R` is abstracted as any relation closed for the rules
-of homeomorphic embeddings.
+There, `R` abstract _any relation_ closed for the two rules of the homeomorphic embedding.
