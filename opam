@@ -22,8 +22,8 @@ install: [
 ]
 
 depends: [
-  "coq-kruskal-almostfull" {>= "1.0"}
-  "coq-kruskal-higman" {>= "1.0"}
-  "coq-kruskal-veldman" {>= "1.0"}
+  "coq-kruskal-almostfull"
+  "coq-kruskal-higman" {>= "1.2"}
+  "coq-kruskal-veldman" {>= "1.2"}
 ]
 
