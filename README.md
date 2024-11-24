@@ -10,6 +10,8 @@
 ```
 # What is this library?
 
+This sub-project is part of the larger project `Coq-Kruskal` described here: https://github.com/DmxLarchey/Coq-Kruskal.
+
 The library is build on top of [`Kruskal-Trees`](https://github.com/DmxLarchey/Kruskal-Trees), [`Kruskal-Finite`](https://github.com/DmxLarchey/Kruskal-Finite), [`Kruskal-AlmostFull`](https://github.com/DmxLarchey/Kruskal-AlmostFull), [`Kruskal-Higman`](https://github.com/DmxLarchey/Kruskal-Higman) and [`Kruskal-Veldman`](https://github.com/DmxLarchey/Kruskal-Veldman), and derives several instances of [Kruskal's tree theorem](https://en.wikipedia.org/wiki/Kruskal%27s_tree_theorem) for the homeomorphic embedding on rose trees, and of _Higman's theorem_ for the product embedding on trees of bounded breadth (the terminology/name for "Higman's theorem" is Wim Veldman's).
 
 If your wish is to __understand the internals of the proof technique__ to establish Kruskal's tree theorem in inductive type theory,
