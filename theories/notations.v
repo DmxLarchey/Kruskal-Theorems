@@ -7,7 +7,7 @@
 (*        Mozilla Public License Version 2.0, MPL-2.0         *)
 (**************************************************************)
 
-From Coq Require Import Utf8.
+From Stdlib Require Import Utf8.
 
 #[global] Notation "⊤₁" := (λ _, True).
 #[global] Notation "⊤₂" := (λ _ _, True).

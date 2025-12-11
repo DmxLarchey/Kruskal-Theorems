@@ -21,8 +21,9 @@ install: [
 ]
 
 depends: [
+  "coq-kruskal-trees"
   "coq-kruskal-almostfull"
-  "coq-kruskal-higman" {>= "1.2"}
-  "coq-kruskal-veldman" {>= "1.2"}
+  "coq-kruskal-higman"
+  "coq-kruskal-veldman" {>= "2.0"}
 ]
 
