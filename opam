@@ -5,7 +5,8 @@ description: """
    This library formalizes the high-level variants of Higman's theorem (for trees of bounded arity)
    and Kruskal's theorem (for rose trees), depending on how these datatypes are implemented. Also,
    Vazsonyi's conjecture to illustrate the expressive power of Kruskal's and Higman's theorem.
-"""  
+"""
+version: "2.2"
 maintainer: ["Dominique Larchey-Wendling (https://github.com/DmxLarchey)"] 
 authors: "Dominique Larchey-Wendling (https://github.com/DmxLarchey)"
 license: "MPL-2.0"
@@ -24,6 +25,6 @@ depends: [
   "coq-kruskal-trees"
   "coq-kruskal-almostfull"
   "coq-kruskal-higman"
-  "coq-kruskal-veldman" {>= "2.0"}
+  "coq-kruskal-veldman" {>= "2.2"}
 ]
 

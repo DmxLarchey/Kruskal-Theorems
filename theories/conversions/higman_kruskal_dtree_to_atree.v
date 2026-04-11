@@ -31,7 +31,7 @@ Section vtree_atree.
 
   Variables (X : Type) (a : X → nat).
 
-  Notation A := (λ n x, n = a x).
+  Abbreviation A := (λ n x, n = a x).
 
   Notation "⟨ x | v ⟩ₐ" := (atree_cons x v).
 
@@ -130,7 +130,7 @@ Section higman_atree_af.
 
   Variables (k : nat) (X : Type) (a : X → nat) (R : nat → rel₂ X).
 
-  Notation A := (λ n x, n = a x).
+  Abbreviation A := (λ n x, n = a x).
 
   Hypothesis (Hk : ∀x, a x < k)
              (HR : ∀n, n < k → af (R n)⇓(A n)).
@@ -178,7 +178,7 @@ Section kruskal_atree_af.
 
   Variables (X : Type) (a : X → nat) (R : rel₂ X).
 
-  Notation A := (λ n x, n = a x).
+  Abbreviation A := (λ n x, n = a x).
 
   Hypothesis (HR : af R).
 

@@ -73,6 +73,8 @@ Section ltree_embeddings.
 
   End ltree_product_embed_ind.
 
+  #[global] Register Scheme ltree_product_embed_ind as ind_nodep for ltree_product_embed.
+
   Section ltree_homeo_embed_ind.
 
     Variable (P : ltree X → ltree X → Prop)
@@ -99,6 +101,8 @@ Section ltree_embeddings.
     Qed.
 
   End ltree_homeo_embed_ind.
+
+  #[global] Register Scheme ltree_homeo_embed_ind as ind_nodep for ltree_homeo_embed.
 
 End ltree_embeddings.
 

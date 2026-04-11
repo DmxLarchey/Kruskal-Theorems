@@ -36,7 +36,7 @@ End ltree_sig_forget.
 
 Section kruskal_ltree_af_to_afs.
 
-  Notation forget := (@ltree_sig_forget _ _).
+  Abbreviation forget := (@ltree_sig_forget _ _).
 
   Hypothesis kruskal : af_kruskal_ltree.
 

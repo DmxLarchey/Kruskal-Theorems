@@ -101,7 +101,7 @@ Section higman_afs_to_higman_af.
             (HX : ∀n, k ≤ n → X n → False)
             (HR : ∀n, n < k → af (@R n)).
 
-  Notation Y := (sigT X).
+  Abbreviation Y := (sigT X).
 
   Let T n (y : Y) := n = projT1 y.
 

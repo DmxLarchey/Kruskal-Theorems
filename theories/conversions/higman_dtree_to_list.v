@@ -41,8 +41,8 @@ Section list_to_dtree.
     | _ => Empty_set
     end.
 
-  Notation Y := unary_family.
-  Notation T := (dtree Y).
+  Abbreviation Y := unary_family.
+  Abbreviation T := (dtree Y).
 
   Local Fixpoint dtree_list (t : T) : list X :=
     match t with
@@ -77,8 +77,8 @@ Section higman_dtree_to_list.
 
   Variable (X : Type) (R : rel₂ X).
 
-  Notation Y := (unary_family X).
-  Notation T := (dtree Y).
+  Abbreviation Y := (unary_family X).
+  Abbreviation T := (dtree Y).
 
   Let RY n : rel₂ (Y n) :=
     match n with

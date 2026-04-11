@@ -34,7 +34,7 @@ Section btree_dtree.
   Local Definition dtree_bounded n :=
     if le_lt_dec k n then Empty_set else unit.
 
-  Notation X := dtree_bounded.
+  Abbreviation X := dtree_bounded.
 
   Local Definition tt' n : n < k → X n.
   Proof. 
@@ -55,8 +55,6 @@ Section btree_dtree.
   Local Fact btree_dtree_fix n v h :
        btree_dtree (@btree_cons k n v h) = ⟨tt' h|vec_map btree_dtree v⟩.
   Proof. reflexivity. Qed.
-
-(*  Hint Resolve lt_pirr : core. *)
 
   Local Fact btree_dtree_inj s t : btree_dtree s = btree_dtree t → s = t.
   Proof.

@@ -60,6 +60,10 @@ Section atree.
   Definition atree_rec (P : _ → Set) := atree_rect P.
   Definition atree_ind (P : _ → Prop) := atree_rect P.
 
+  #[global] Register Scheme atree_rect as rect_dep for atree.
+  #[global] Register Scheme atree_rec as rec_dep for atree.
+  #[global] Register Scheme atree_ind as ind_dep for atree.
+
   Unset Elimination Schemes.
 
   Variable (R : nat → rel₂ X) (T : rel₂ X).
@@ -102,6 +106,8 @@ Section atree.
 
   End atree_product_embed_ind.
 
+  #[global] Register Scheme atree_product_embed_ind as ind_nodep for atree_product_embed.
+
   Section atree_homeo_embed_ind.
 
     Variable (P : atree → atree → Prop)
@@ -127,6 +133,8 @@ Section atree.
     Qed.
 
   End atree_homeo_embed_ind.
+
+  #[global] Register Scheme atree_homeo_embed_ind as ind_nodep for atree_homeo_embed.
 
 End atree.
 

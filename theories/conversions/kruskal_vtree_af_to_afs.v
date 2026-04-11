@@ -36,7 +36,7 @@ End vtree_sig_forget.
 
 Section kruskal_vtree_af_to_afs.
 
-  Notation forget := (@vtree_sig_forget _ _).
+  Abbreviation forget := (@vtree_sig_forget _ _).
 
   Hypothesis kruskal : af_kruskal_vtree.
 

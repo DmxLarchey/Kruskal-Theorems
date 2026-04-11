@@ -57,6 +57,8 @@ Section vtree_embeddings.
 
   End vtree_homeo_embed_ind.
 
+  #[global] Register Scheme vtree_homeo_embed_ind as ind_nodep for vtree_homeo_embed.
+
   Hint Resolve vec_fall2_embed : core.
 
   Fact vtree_product_upto k (R : nat → rel₂ A) :
